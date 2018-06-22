@@ -18,7 +18,7 @@
       - /etc/origin/node/bootstrap.kubeconfig
     - key: kubeletArguments.feature-gates
       value:
-      - RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true
+      - "RotateKubeletClientCertificate=true,RotateKubeletServerCertificate=true{{ ',LocalStorageCapacityIsolation=true' if (openshift_node_group_use_ephemeralstorage) else '' }}"
     - key: kubeletArguments.rotate-certificates
       value:
       - "true"
